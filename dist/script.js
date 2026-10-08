@@ -12,7 +12,7 @@
   const schema = JSON.parse(schemaNode.textContent);
   const links = document.querySelector('#contact-links');
   const addContact = (text, href) => { const link = document.createElement('a'); link.className = 'button'; link.textContent = text; link.href = href; links.append(link); };
-  if (/^\+?[\d\s()-]{6,20}$/.test(config.phone || '')) { addContact('Bel Bianca', `tel:${config.phone.replace(/[\s()-]/g, '')}`); schema.telephone = config.phone; }
+  if (/^\+?[\d\s()-]{6,20}$/.test(config.phone || '')) { const phoneLink = links.querySelector('[data-contact="phone"]'); const phoneHref = `tel:${config.phone.replace(/[\s()-]/g, '')}`; if (phoneLink) phoneLink.href = phoneHref; else addContact('Bel Bianca', phoneHref); schema.telephone = config.phone; }
   if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(config.email || '')) { addContact('Mail Bianca', `mailto:${config.email}`); schema.email = config.email; document.querySelector('#privacy-contact').append(` E-mail: ${config.email}.`); }
   if (config.mapsUrl) { try { const url = new URL(config.mapsUrl); if (url.protocol === 'https:') addContact('Bekijk de locatie', url.href); } catch { /* Geen ongeldige links publiceren. */ } }
   if (schema.telephone || schema.email) document.querySelector('#contact-pending').hidden = true;

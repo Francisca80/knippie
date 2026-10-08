@@ -1,6 +1,6 @@
 // Vul uitsluitend bevestigde gegevens in. Lege velden worden niet getoond.
 window.KNIPPIE_CONFIG = Object.freeze({
-  phone: '',             // Internationaal formaat, bijvoorbeeld +31...
+  phone: '+31623997163',             // Internationaal formaat, bijvoorbeeld +31...
   email: '',
   streetAddress: 'De Richtershof 22',
   postalCode: '4184 EW',
