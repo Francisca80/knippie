@@ -15,7 +15,7 @@
   if (/^\+?[\d\s()-]{6,20}$/.test(config.phone || '')) { addContact('Bel Bianca', `tel:${config.phone.replace(/[\s()-]/g, '')}`); schema.telephone = config.phone; }
   if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(config.email || '')) { addContact('Mail Bianca', `mailto:${config.email}`); schema.email = config.email; document.querySelector('#privacy-contact').append(` E-mail: ${config.email}.`); }
   if (config.mapsUrl) { try { const url = new URL(config.mapsUrl); if (url.protocol === 'https:') addContact('Bekijk de locatie', url.href); } catch { /* Geen ongeldige links publiceren. */ } }
-  if (links.children.length) document.querySelector('#contact-pending').hidden = true;
+  if (schema.telephone || schema.email) document.querySelector('#contact-pending').hidden = true;
   if (config.streetAddress) { schema.address.streetAddress = config.streetAddress; schema.address.postalCode = config.postalCode || ''; document.querySelector('#address').textContent = `${config.streetAddress}, ${config.postalCode || ''} Opijnen`; }
   schemaNode.textContent = JSON.stringify(schema);
   const privacy = document.querySelector('#privacy-dialog');
