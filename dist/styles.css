@@ -7,3 +7,17 @@
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 .brand-logo{display:block;width:142px;height:auto}.footer .brand-logo{width:110px}.header{min-height:140px}.button .sr-only{font-size:1px}.about-name .eyebrow{color:#ffd4e5}@media(max-width:680px){.header{min-height:118px}.brand-logo{width:125px}.footer .brand-logo{width:100px}}
+
+/* Knippie-roze met donkere, neutrale tekst */
+:root{--ink:#25272c;--paper:#fffdfd;--yellow:#ffd1e5;--peach:#f8bfd7;--line:#efdce5;--body:#4e5055;--brand:#e60072}
+body{background:var(--paper)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:var(--brand)}
+.button{background:var(--brand);border-color:var(--brand);color:#fff}.button:hover{background:#bd075f;border-color:#bd075f}
+.menu-toggle{color:var(--ink)}.spark,.about-flower{color:var(--brand)}
+.round-stamp,.ribbon,.contact{background:var(--yellow)}
+.about{background:#fff0f6;color:var(--ink)}.about-name{border-color:#e5b6cb}.about-name .eyebrow{color:#a70555}.about-copy p,.location-tag{color:var(--body)}
+.care-symbol,.care-card:nth-child(2) .care-symbol,.care-card:nth-child(3) .care-symbol{background:#ffe4ef}
+.photo-label{box-shadow:0 6px 20px #25272c12}
+.contact-info{border-color:#bd8ba3}.contact-scissors{color:var(--brand)}
+.salon-section{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,110px);align-items:center;padding-top:100px;padding-bottom:30px}.salon-photo{overflow:hidden;border-radius:12px 170px 12px 12px;background:#e9e6e4;max-height:560px}.salon-photo img{display:block;width:100%;height:560px;object-fit:cover;object-position:center 55%}.salon-copy p:not(.eyebrow){max-width:440px;color:var(--body)}.salon-copy address{font-style:normal;font-weight:700;line-height:1.6;padding-left:18px;border-left:3px solid var(--brand);margin:28px 0}
+@media(max-width:680px){.salon-section{grid-template-columns:1fr;gap:32px;padding-top:65px;padding-bottom:5px}.salon-photo{max-height:420px;border-radius:12px 110px 12px 12px}.salon-photo img{height:420px}.salon-copy h2{font-size:42px}}

@@ -29,3 +29,5 @@ Ramiro Pianarosa / Unsplash: https://unsplash.com/photos/a-small-dog-looking-up-
 ## Logo
 
 Het aangeleverde `Knippie_pink.ai` is met pdftocairo naar `dist/assets/knippie-logo.svg` geconverteerd. De originele vectorvormen zijn behouden; het logo is niet nagetekend.
+
+De door de eigenaar aangeleverde salonfoto staat lokaal als `dist/assets/salon-opijnen.jpg` en toont de ingang in Opijnen. Het kleurenschema gebruikt logo-roze en neutrale donkere tekst.
