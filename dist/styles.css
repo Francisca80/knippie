@@ -23,3 +23,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:var(--b
 @media(max-width:680px){.salon-section{grid-template-columns:1fr;gap:32px;padding-top:65px;padding-bottom:5px}.salon-photo{max-height:420px;border-radius:12px 110px 12px 12px}.salon-photo img{height:420px}.salon-copy h2{font-size:42px}}
 
 @media(min-width:681px){.care-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Rustiger: geen decoratieve symbolen rond de inhoud. */
+.hero h1{margin-top:0}.hero-copy .button{gap:0}.photo-label{gap:0}.care-card h3{margin-top:32px}.contact-info h3{margin-top:0}
