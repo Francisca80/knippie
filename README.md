@@ -6,7 +6,7 @@ Statische Nederlandse onepage, zonder framework, packages of buildstap. Open `di
 
 `dist/index.html` bevat de teksten, semantische HTML en LocalBusiness JSON-LD. `styles.css` bevat de responsive vormgeving; `script.js` regelt het mobiele menu, privacyvenster, contactlinks en de cookiekeuze. `config.js` bevat de nog aan te vullen bedrijfsgegevens en het Analytics-ID.
 
-Bevestigd: Trimsalon Knippie, Bianca Rademacher, De Richtershof 22, 4184 EW Opijnen, KvK 42050237, telefoon en WhatsApp 06 2399 7163, ‘Van knip naar knap’. Dienstenbeschrijvingen en algemene teksten zijn conceptcopy en moeten door Bianca worden gecontroleerd. Er zijn geen tarieven, openingstijden, diploma's of beoordelingen verzonnen. De site gebruikt nu de door de eigenaar aangeleverde foto van de salon.
+Bevestigd: Trimsalon Knippie, Bianca Rademacher, De Richtershof 22, 4184 EW Opijnen, KvK 42050237, telefoon en WhatsApp 06 2399 7163, ‘Van knip naar knap’. Dienstenbeschrijvingen en algemene teksten zijn conceptcopy en moeten door Bianca worden gecontroleerd. Er zijn geen tarieven, openingstijden, diploma's of beoordelingen verzonnen. De site gebruikt de door de eigenaar aangeleverde salonfoto en een sfeerfoto van een hond.
 
 ## Voor publieke ingebruikname
 
@@ -24,7 +24,7 @@ Implementatiebronnen: [Google Consent Mode](https://developers.google.com/tag-pl
 
 ## Foto
 
-De foto van de salon is aangeleverd door de eigenaar en lokaal verkleind opgeslagen. Er zijn geen externe fonts, embeds of afbeeldingsverzoeken bij het openen van de pagina.
+De salonfoto is aangeleverd door de eigenaar. De hondenfoto is van Ramiro Pianarosa via Unsplash (https://unsplash.com/photos/a-small-dog-looking-up-pRhZHhixRIY; licentie: https://unsplash.com/license). Beide foto’s zijn lokaal opgeslagen. Er zijn geen externe fonts, embeds of afbeeldingsverzoeken bij het openen van de pagina.
 
 ## Logo
 
