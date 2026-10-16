@@ -14,7 +14,7 @@
   const addContact = (text, href) => { const link = document.createElement('a'); link.className = 'button'; link.textContent = text; link.href = href; links.append(link); };
   if (/^\+?[\d\s()-]{6,20}$/.test(config.phone || '')) { const phoneLink = document.querySelector('#contact [data-contact="phone"]'); const phoneHref = `tel:${config.phone.replace(/[\s()-]/g, '')}`; if (phoneLink) phoneLink.href = phoneHref; else addContact('Bel Trimsalon Knippie', phoneHref); schema.telephone = config.phone; }
   if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(config.email || '')) { addContact('Mail Trimsalon Knippie', `mailto:${config.email}`); schema.email = config.email; document.querySelector('#privacy-contact').append(` E-mail: ${config.email}.`); }
-  if (config.mapsUrl) { try { const url = new URL(config.mapsUrl); if (url.protocol === 'https:') { addContact('Bekijk de locatie', url.href); schema.hasMap = url.href; } } catch { /* Geen ongeldige links publiceren. */ } }
+  if (config.mapsUrl) { try { const url = new URL(config.mapsUrl); if (url.protocol === 'https:') { const mapLinks = document.querySelectorAll('[data-contact="maps"]'); if (mapLinks.length) mapLinks.forEach(link => { link.href = url.href; }); else addContact('Bekijk de locatie', url.href); schema.hasMap = url.href; } } catch { /* Geen ongeldige links publiceren. */ } }
   if (schema.telephone || schema.email) document.querySelector('#contact-pending').hidden = true;
   if (config.streetAddress) { schema.address.streetAddress = config.streetAddress; schema.address.postalCode = config.postalCode || ''; document.querySelector('#address').textContent = `${config.streetAddress}, ${config.postalCode || ''} Opijnen`; }
   schemaNode.textContent = JSON.stringify(schema);
