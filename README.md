@@ -8,6 +8,8 @@ Statische Nederlandse onepage, zonder framework, packages of buildstap. Open `di
 
 Bevestigd: Trimsalon Knippie, Bianca Rademacher, De Richtershof 22, 4184 EW Opijnen, KvK 42050237, telefoon en WhatsApp 06 2399 7163, ‘Van knip naar knap’. Dienstenbeschrijvingen en algemene teksten zijn conceptcopy en moeten door Bianca worden gecontroleerd. Er zijn geen tarieven, openingstijden, diploma's of beoordelingen verzonnen. De site gebruikt de door de eigenaar aangeleverde salonfoto en een sfeerfoto van een hond.
 
+Zie [GOOGLE-INSTELLEN.md](GOOGLE-INSTELLEN.md) voor de instellingen en controles voor Google Bedrijfsprofiel, Search Console en Analytics.
+
 ## Voor publieke ingebruikname
 
 1. Vul e-mail en eventueel de juiste Google Maps-link in `dist/config.js` in. Voeg openingstijden pas toe wanneer bevestigd, zowel zichtbaar als in JSON-LD.
@@ -31,3 +33,7 @@ De salonfoto is aangeleverd door de eigenaar. De hondenfoto is van Ramiro Pianar
 Het aangeleverde `Knippie_pink.ai` is met pdftocairo naar `dist/assets/knippie-logo.svg` geconverteerd. De originele vectorvormen zijn behouden; het logo is niet nagetekend.
 
 De door de eigenaar aangeleverde salonfoto staat lokaal als `dist/assets/salon-opijnen.jpg` en toont de ingang in Opijnen. Het kleurenschema gebruikt logo-roze en neutrale donkere tekst.
+
+## Voor-en-nafoto’s
+
+Het blok `#voor-en-na` in `dist/index.html` toont de drie samengestelde foto’s uit `dist/assets/hondjes/`. De foto’s staan naast elkaar op desktop en onder elkaar op mobiel en worden volledig getoond zonder uitsnede. Voeg voor een extra foto een `figure.results-card` met een `img.results-photo` toe aan `.results-grid`. Gebruik het juiste bestandspad, een beschrijvende alt-tekst, de originele width en height en `loading="lazy"`.

@@ -12,9 +12,9 @@
   const schema = JSON.parse(schemaNode.textContent);
   const links = document.querySelector('#contact-links');
   const addContact = (text, href) => { const link = document.createElement('a'); link.className = 'button'; link.textContent = text; link.href = href; links.append(link); };
-  if (/^\+?[\d\s()-]{6,20}$/.test(config.phone || '')) { const phoneLink = links.querySelector('[data-contact="phone"]'); const phoneHref = `tel:${config.phone.replace(/[\s()-]/g, '')}`; if (phoneLink) phoneLink.href = phoneHref; else addContact('Bel Bianca', phoneHref); schema.telephone = config.phone; }
-  if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(config.email || '')) { addContact('Mail Bianca', `mailto:${config.email}`); schema.email = config.email; document.querySelector('#privacy-contact').append(` E-mail: ${config.email}.`); }
-  if (config.mapsUrl) { try { const url = new URL(config.mapsUrl); if (url.protocol === 'https:') addContact('Bekijk de locatie', url.href); } catch { /* Geen ongeldige links publiceren. */ } }
+  if (/^\+?[\d\s()-]{6,20}$/.test(config.phone || '')) { const phoneLink = document.querySelector('#contact [data-contact="phone"]'); const phoneHref = `tel:${config.phone.replace(/[\s()-]/g, '')}`; if (phoneLink) phoneLink.href = phoneHref; else addContact('Bel Trimsalon Knippie', phoneHref); schema.telephone = config.phone; }
+  if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(config.email || '')) { addContact('Mail Trimsalon Knippie', `mailto:${config.email}`); schema.email = config.email; document.querySelector('#privacy-contact').append(` E-mail: ${config.email}.`); }
+  if (config.mapsUrl) { try { const url = new URL(config.mapsUrl); if (url.protocol === 'https:') { addContact('Bekijk de locatie', url.href); schema.hasMap = url.href; } } catch { /* Geen ongeldige links publiceren. */ } }
   if (schema.telephone || schema.email) document.querySelector('#contact-pending').hidden = true;
   if (config.streetAddress) { schema.address.streetAddress = config.streetAddress; schema.address.postalCode = config.postalCode || ''; document.querySelector('#address').textContent = `${config.streetAddress}, ${config.postalCode || ''} Opijnen`; }
   schemaNode.textContent = JSON.stringify(schema);
@@ -22,6 +22,36 @@
   document.querySelector('#privacy-open').addEventListener('click', () => privacy.showModal());
   document.querySelector('.dialog-close').addEventListener('click', () => privacy.close());
   privacy.addEventListener('click', event => { if (event.target === privacy) { const r = privacy.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) privacy.close(); } });
+
+  // Eenmalige entree op desktop, onafhankelijk van de cookiekeuze.
+  const careGrid = document.querySelector('.care-grid');
+  const careMotion = window.matchMedia('(min-width: 951px) and (prefers-reduced-motion: no-preference)');
+  if (careGrid && 'IntersectionObserver' in window && careMotion.matches) {
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        careGrid.classList.add('care-visible');
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+    careGrid.classList.add('care-animate');
+    observer.observe(careGrid);
+    careMotion.addEventListener('change', () => {
+      // Houd de kaarten zichtbaar bij een smaller venster of minder beweging.
+      careGrid.classList.remove('care-animate');
+      observer.disconnect();
+    }, { once: true });
+  }
+
+  // Houd één antwoord tegelijk open; details blijft met het toetsenbord bedienbaar.
+  const questions = [...document.querySelectorAll('.questions details')];
+  questions.forEach(question => {
+    question.addEventListener('toggle', () => {
+      if (!question.open) return;
+      questions.forEach(other => {
+        if (other !== question) other.open = false;
+      });
+    });
+  });
 
   // Basic consent: geen verzoeken aan Google tot actieve toestemming.
   const id = config.analyticsId;
@@ -63,6 +93,22 @@
     else { window[`ga-disable-${id}`] = true; clearAnalyticsCookies(); if (loaded) location.reload(); }
     settings.focus();
   };
+  // Meet alleen het gekozen kanaal en de plek; geen nummers, URLs of berichtinhoud.
+  document.addEventListener('click', event => {
+    if (choice !== 'granted' || !loaded) return;
+    const link = event.target.closest('a[href]');
+    if (!link) return;
+    const url = new URL(link.href, location.href);
+    let method;
+    if (url.protocol === 'tel:') method = 'phone';
+    else if (url.protocol === 'mailto:') method = 'email';
+    else if (url.hostname === 'wa.me') method = 'whatsapp';
+    else if (url.hostname === 'www.facebook.com' || url.hostname === 'facebook.com') method = 'facebook';
+    else if (config.mapsUrl && url.href === schema.hasMap) method = 'maps';
+    if (!method) return;
+    const placement = link.closest('header') ? 'header' : link.closest('.hero') ? 'hero' : link.closest('#contact') ? 'contact' : 'other';
+    window.gtag('event', 'contact_click', { contact_method: method, placement, transport_type: 'beacon' });
+  });
   document.querySelector('#cookie-accept').addEventListener('click', () => save('granted'));
   document.querySelector('#cookie-reject').addEventListener('click', () => save('denied'));
   settings.addEventListener('click', () => { banner.hidden = false; document.querySelector('#cookie-reject').focus(); });

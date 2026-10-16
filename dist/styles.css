@@ -32,3 +32,143 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:var(--b
 .hero{gap:0;grid-template-columns:1fr 1fr;min-height:580px;padding-top:42px;padding-bottom:70px;align-items:stretch}.hero-copy{align-self:center;padding:30px 60px 30px 0}.hero h1{font-size:clamp(65px,7vw,96px);line-height:1.02;letter-spacing:-.075em;margin:0 0 18px;font-weight:700}.hero h1 span{color:#d7006c}.hero-tagline{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:30px;line-height:1.25;margin:0 0 31px;color:#25272c}.hero-description{max-width:440px;font-size:17px;line-height:1.7;margin:0 0 31px}.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px 25px}.hero-actions .button{min-height:50px;white-space:nowrap}.hero-secondary{font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:5px}.hero-visual{margin:0;padding:0;height:545px;position:relative;overflow:hidden;background:#e7e2df}.hero-visual>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 44%}.hero-visual figcaption{position:absolute;left:0;right:0;bottom:0;padding:12px 18px;background:#fffafb;font-size:12px;font-weight:700;letter-spacing:.02em}.hero-visual figcaption span{padding:0 5px;color:#d7006c}
 @media(max-width:950px){.hero-copy{padding-right:30px}.hero h1{font-size:clamp(57px,7vw,80px)}.hero-visual{height:485px}.header nav{gap:20px}}
 @media(max-width:680px){.header{min-height:92px}.header .brand-logo{width:98px}.header nav{gap:0}.header nav .nav-contact{padding:12px}.hero{display:flex;flex-direction:column;gap:0;padding-top:0;padding-bottom:58px;min-height:0}.hero-copy{padding:43px 0 37px}.hero h1{font-size:clamp(59px,14vw,84px)}.hero-tagline{font-size:27px;margin-bottom:23px}.hero-description{font-size:16px;margin-bottom:25px}.hero-actions{gap:17px 24px}.hero-visual{width:100%;height:410px;max-width:none}.hero-visual>img{object-position:center 39%}}
+
+/* Bianca met een hond in haar trimsalon. */
+.about-portrait{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;object-position:center bottom;border-radius:12px;margin-bottom:28px}
+
+/* Naam als leesbare overlay op Bianca’s foto. */
+.about-name{padding:0;border:0}
+.about-figure{position:relative;isolation:isolate;overflow:hidden;border-radius:12px;margin:0 0 16px}
+.about-figure::after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.78));pointer-events:none}
+.about-figure .about-portrait{margin:0;border-radius:0}
+.about-figure .name-display{position:absolute;z-index:1;left:clamp(18px,3vw,32px);right:18px;bottom:24px;margin:0;color:#fff;font-size:clamp(34px,4.5vw,55px);text-shadow:0 2px 8px #0005}
+.about-figure .name-display span{font-size:clamp(30px,4vw,48px)}
+
+.about-figure{margin-bottom:0}
+.about-figure .name-display .location-tag{display:block;margin-top:12px;font-family:var(--font);font-size:12px;font-weight:400;letter-spacing:normal;line-height:1.65;color:#fff}
+
+/* Samengestelde voor-en-nafoto’s blijven volledig zichtbaar. */
+.results-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.results-card{margin:0;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:#fff0f6}
+.results-photo{display:block;width:100%;height:auto}
+.results-placeholder{aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:center;padding:24px;color:var(--body)}
+.results-halves{display:grid;grid-template-columns:1fr 1fr;flex:1;align-items:stretch}
+.results-halves span{display:flex;align-items:center;justify-content:center;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:28px}
+.results-halves span+span{border-left:1px solid #e5b6cb}
+.results-placeholder p{margin:20px 0 0;text-align:center;font-size:12px}
+.results+.salon-section{padding-top:0}
+@media(max-width:950px){.results-grid{gap:16px}.results-placeholder{padding:16px}}
+@media(max-width:680px){.results-grid{grid-template-columns:1fr;gap:20px}}
+
+/* Meer kleur en afwisseling in de grote paginavlakken. */
+:root{--paper:#fff8f5;--line:#e9ccd8;--plum:#492639;--rose-soft:#fce4ed}
+.header{border-bottom:0}
+.hero-band{background:#fff}
+.hero{padding-top:48px;padding-bottom:48px}
+.hero-visual{border-radius:140px 140px 18px 18px}
+.hero h1,.hero-tagline{color:var(--plum)}
+.care-card{background:var(--rose-soft);border-color:#efd0dd;border-radius:18px}
+.care-card:nth-child(2),.care-card:nth-child(3){background:#f6e9e2;border-color:#e9d8ce}
+.card-number{color:#8b3058}
+.about{background:#fff;color:var(--ink)}
+.about-copy p{color:var(--body)}
+.about-copy .serif{color:var(--ink)}
+.about-copy .text-link{color:#a70555}
+.about-copy .text-link:focus-visible{outline-color:var(--brand)}
+.results-band{background:var(--rose-soft)}
+.results-card{padding:8px;background:#fff;border-color:#e7c0d1;box-shadow:0 8px 24px #4926390a}
+.results h2,.salon-copy h2,.faq-grid h2{color:var(--plum)}
+.salon-section{padding-top:90px;padding-bottom:75px}
+.faq-grid{border-top:1px solid var(--line)}
+.questions{border-top:0}
+.questions details{padding-inline:22px;background:#fce4ed;border:1px solid #efd0dd;border-radius:12px;margin-bottom:12px}
+.questions details[open]{background:#f8d5e3}
+.questions summary::after{color:#a70555}
+.contact{background:#f5bfd6;border:1px solid #e8a8c3;border-radius:24px}
+.contact h2,.contact-info h3{color:var(--plum)}
+.footer{margin-top:45px;border-top:1px solid var(--line)}
+@media(max-width:680px){.hero{padding-top:0;padding-bottom:28px}.hero-visual{border-radius:100px 100px 14px 14px}.salon-section{padding-top:60px;padding-bottom:55px}.questions details{padding-inline:18px}.footer{margin-top:35px}}
+
+/* Header en footer delen dezelfde warme achtergrondkleur. */
+.header,.footer{background:var(--paper)}
+
+/* Zachtere typografie met lokaal beschikbare lettertypen. */
+:root{--font:"Avenir Next",Avenir,"Trebuchet MS",sans-serif}
+body{font-family:var(--font);line-height:1.75}
+h1,h2,h3{font-weight:600}
+.hero h1{font-weight:600;letter-spacing:-.06em}
+.hero-description{font-size:18px;line-height:1.8}
+.care-card p,.about-copy p,.salon-copy p,.section-heading>p,.faq-grid>div>p:last-child,details p,.contact p{font-size:16px;line-height:1.8}
+.header nav>a,.button,.text-link,summary{font-weight:600}
+@media(max-width:680px){.hero-description{font-size:17px}}
+
+/* Verzorgingskaarten schuiven op desktop eenmalig van links in beeld. */
+@media(min-width:951px) and (prefers-reduced-motion:no-preference){
+  .care-animate .care-card{opacity:0;transform:translateX(-48px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1)}
+  .care-animate .care-card:nth-child(2){transition-delay:.12s}
+  .care-animate .care-card:nth-child(3){transition-delay:.24s}
+  .care-animate .care-card:nth-child(4){transition-delay:.36s}
+  .care-animate.care-visible .care-card{opacity:1;transform:translateX(0)}
+}
+
+/* Toon het volledige hero-logo, zonder uitsnede of afgerond masker. */
+.hero-visual{background:#fff;border-radius:0}
+.hero-visual>img{object-fit:contain;object-position:center}
+
+/* Interactieve vragen met behoud van de native details-bediening. */
+.questions details{transition:background .2s ease,border-color .2s ease,box-shadow .2s ease}
+.questions summary{gap:18px}
+.questions summary::after{content:'+';display:flex;align-items:center;justify-content:center;flex:0 0 32px;width:32px;height:32px;border-radius:50%;background:#fff;color:#a70555;transition:transform .25s ease,background .2s ease,color .2s ease}
+.questions details[open]{border-color:#dc8db1;box-shadow:0 6px 18px #4926390a}
+.questions details[open] summary::after{content:'+';transform:rotate(45deg);background:#a70555;color:#fff}
+.questions summary:focus-visible{outline:2px solid #a70555;outline-offset:4px;border-radius:6px}
+@media(hover:hover){.questions details:hover{background:#f8d5e3;border-color:#dc8db1}.questions summary:hover::after{background:#a70555;color:#fff}}
+@media(prefers-reduced-motion:no-preference){
+  .questions details[open] p{animation:faq-answer-in .28s ease-out}
+  @keyframes faq-answer-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+}
+
+/* Sociale contactkanalen, ook zichtbaar naast het mobiele menu. */
+.header{gap:24px}
+.header nav{margin-left:auto;gap:24px}
+.header-socials,.contact-socials{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.header-socials a,.contact-socials a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;color:#a70555;transition:background .2s,color .2s}
+.header-socials a:hover,.contact-socials a:hover{background:#a70555;border-color:#a70555;color:#fff}
+.header-socials svg,.contact-socials svg{display:block}
+@media(min-width:681px) and (max-width:950px){.header{gap:12px}.header nav{gap:12px}.header nav>a:not(.button){font-size:12px}.header-socials{gap:4px}}
+@media(max-width:680px){.header{gap:8px}.header .brand{order:0;margin-right:auto}.header-socials{order:1;gap:4px}.header .menu-toggle{order:2}.header nav{order:3;margin-left:0;gap:0}.header-socials a{width:44px;height:44px}}
+
+.contact-socials{margin-top:20px;gap:12px}
+.contact-socials a{width:50px;height:50px;background:#fff}
+
+/* Telefoonnummer als herkenbaar contactpunt naast de sociale kanalen. */
+.contact-phone{display:flex;align-items:center;gap:14px;width:fit-content;max-width:100%;margin-top:24px;text-decoration:none;border-radius:12px;color:var(--ink)}
+.contact-phone-icon{display:flex;align-items:center;justify-content:center;flex:0 0 50px;width:50px;height:50px;border-radius:50%;background:#fff;color:#a70555;border:1px solid var(--line);transition:background .2s,color .2s}
+.contact-phone-icon svg{display:block}
+.contact-phone-label{display:block;font-size:12px;font-weight:600;line-height:1.5;color:var(--body)}
+.contact-phone-number{display:block;font-size:21px;font-weight:600;line-height:1.5;letter-spacing:.01em}
+.contact-phone:hover .contact-phone-icon{background:#a70555;color:#fff;border-color:#a70555}
+.contact-phone:hover .contact-phone-number{text-decoration:underline;text-underline-offset:4px}
+.contact-info .contact-socials{margin-top:16px;padding-top:16px;border-top:1px solid #bd8ba3}
+
+/* Compacte mobiele hero met het volledige logo boven de introductie. */
+@media(max-width:680px){
+  .hero{padding-top:24px;padding-bottom:40px;gap:22px}
+  .hero-visual{order:-1;height:auto;width:min(100%,300px);margin:0 auto;align-self:center}
+  .hero-visual>img{width:100%;height:auto;object-fit:contain}
+  .hero-copy{padding:0;align-self:stretch;text-align:center}
+  .hero h1{font-size:clamp(42px,11vw,60px);line-height:1.05;margin-bottom:14px}
+  .hero-tagline{font-size:25px;margin-bottom:18px}
+  .hero-description{max-width:36ch;margin:0 auto 24px;font-size:16px;line-height:1.7}
+  .hero-actions{flex-direction:column;align-items:center;gap:16px}
+  .hero-actions .button{width:100%;max-width:340px;white-space:normal}
+}
+
+/* De volledige telefoonregel is één duidelijke belknop. */
+.contact-phone{padding:14px 20px;background:var(--brand);border:1px solid var(--brand);color:#fff;transition:background .2s,border-color .2s}
+.contact-phone .contact-phone-icon{background:transparent;border:0;color:#fff;flex-basis:30px;width:30px;height:36px}
+.contact-phone .contact-phone-label{color:#fff}
+.contact-phone:hover{background:#bd075f;border-color:#bd075f}
+.contact-phone:hover .contact-phone-icon{background:transparent;color:#fff}
+.contact-phone:hover .contact-phone-number{text-decoration:none}
+@media(max-width:680px){.contact-phone{width:100%;justify-content:center}}
