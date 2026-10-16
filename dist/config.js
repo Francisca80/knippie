@@ -7,5 +7,5 @@ window.KNIPPIE_CONFIG = Object.freeze({
   streetAddress: 'De Richtershof 22',
   postalCode: '4184 EW',
   mapsUrl: 'https://maps.app.goo.gl/ai99Qj8cG12YMqi67',           // Link naar het juiste Google Bedrijfsprofiel
-  analyticsId: ''        // Google Analytics 4-meet-ID: G-...
+  analyticsId: 'G-29R3Y4NJP3'        // Google Analytics 4-meet-ID: G-...
 });
